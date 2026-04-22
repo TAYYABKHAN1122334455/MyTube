@@ -1,0 +1,26 @@
+{
+  "name": "02_project_structure",
+  "version": "1.0.0",
+  "description": "\"A project Structure of Backend\"",
+  "keywords": [
+    "express",
+    "node",
+    "mongodb"
+  ],
+  "license": "ISC",
+  "author": "",
+  "type": "module",
+  "main": "src/index.js",
+  "scripts": {
+    "dev": "nodemon src/index.js",
+    "start": "node src/index.js"
+  },
+  "dependencies": {
+    "express": "^5.2.1",
+    "mongoose": "^9.5.0"
+  },
+  "devDependencies": {
+    "nodemon": "^3.1.14",
+    "prettier": "^3.8.3"
+  }
+}
