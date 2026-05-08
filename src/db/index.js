@@ -1,4 +1,4 @@
-import mongoose from "mongoose";
+import mongoose from 'mongoose';
 
 const connectDB = async () => {
   try {
@@ -6,7 +6,7 @@ const connectDB = async () => {
 
     console.log(`✅ DB Connected`);
   } catch (error) {
-    console.error("❌ Database Not Connected:", error);
+    console.error('❌ Database Not Connected:', error);
     process.exit(1);
   }
 };

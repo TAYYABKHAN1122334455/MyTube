@@ -10,31 +10,31 @@
   updatedAt: Date
 */
 
-import mongoose, { Schema } from "mongoose";
+import mongoose, { Schema } from 'mongoose';
 
 const likeSchema = new Schema(
   {
     user: {
       type: Schema.Types.ObjectId,
-      ref: "User",
-      required: [true, "User is required"],
+      ref: 'User',
+      required: [true, 'User is required'],
     },
 
     video: {
       type: Schema.Types.ObjectId,
-      ref: "Video",
+      ref: 'Video',
       default: null,
     },
 
     comment: {
       type: Schema.Types.ObjectId,
-      ref: "Comment",
+      ref: 'Comment',
       default: null,
     },
 
     tweet: {
       type: Schema.Types.ObjectId,
-      ref: "Tweet",
+      ref: 'Tweet',
       default: null,
     },
   },
@@ -43,4 +43,4 @@ const likeSchema = new Schema(
   }
 );
 
-export const Like = mongoose.model("Like", likeSchema);
+export const Like = mongoose.model('Like', likeSchema);

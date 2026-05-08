@@ -8,21 +8,21 @@
   updatedAt: Date
 */
 
-import mongoose, { Schema } from "mongoose";
+import mongoose, { Schema } from 'mongoose';
 
 const tweetSchema = new Schema(
   {
     content: {
       type: String,
-      required: [true, "Tweet content is required"],
+      required: [true, 'Tweet content is required'],
       trim: true,
       maxlength: 280, // Twitter style limit
     },
 
     owner: {
       type: Schema.Types.ObjectId,
-      ref: "User",
-      required: [true, "Owner is required"],
+      ref: 'User',
+      required: [true, 'Owner is required'],
     },
   },
   {
@@ -30,4 +30,4 @@ const tweetSchema = new Schema(
   }
 );
 
-export const Tweet = mongoose.model("Tweet", tweetSchema);
+export const Tweet = mongoose.model('Tweet', tweetSchema);

@@ -8,20 +8,20 @@
   updatedAt: Date
 */
 
-import mongoose, { Schema } from "mongoose";
+import mongoose, { Schema } from 'mongoose';
 
 const subscriptionSchema = new Schema(
   {
     subscriber: {
       type: Schema.Types.ObjectId,
-      ref: "User",
-      required: [true, "Subscriber is required"],
+      ref: 'User',
+      required: [true, 'Subscriber is required'],
     },
 
     channel: {
       type: Schema.Types.ObjectId,
-      ref: "User",
-      required: [true, "Channel is required"],
+      ref: 'User',
+      required: [true, 'Channel is required'],
     },
   },
   {
@@ -30,12 +30,6 @@ const subscriptionSchema = new Schema(
 );
 
 // Prevent duplicate subscriptions
-subscriptionSchema.index(
-  { subscriber: 1, channel: 1 },
-  { unique: true }
-);
+subscriptionSchema.index({ subscriber: 1, channel: 1 }, { unique: true });
 
-export const Subscription = mongoose.model(
-  "Subscription",
-  subscriptionSchema
-);
+export const Subscription = mongoose.model('Subscription', subscriptionSchema);

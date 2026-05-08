@@ -10,13 +10,13 @@
   updatedAt: Date
 */
 
-import mongoose, { Schema } from "mongoose";
+import mongoose, { Schema } from 'mongoose';
 
 const playlistSchema = new Schema(
   {
     name: {
       type: String,
-      required: [true, "Playlist name is required"],
+      required: [true, 'Playlist name is required'],
       trim: true,
       maxlength: 100,
     },
@@ -24,21 +24,21 @@ const playlistSchema = new Schema(
     description: {
       type: String,
       trim: true,
-      default: "",
+      default: '',
       maxlength: 500,
     },
 
     videos: [
       {
         type: Schema.Types.ObjectId,
-        ref: "Video",
+        ref: 'Video',
       },
     ],
 
     owner: {
       type: Schema.Types.ObjectId,
-      ref: "User",
-      required: [true, "Owner is required"],
+      ref: 'User',
+      required: [true, 'Owner is required'],
     },
   },
   {
@@ -46,4 +46,4 @@ const playlistSchema = new Schema(
   }
 );
 
-export const Playlist = mongoose.model("Playlist", playlistSchema);
+export const Playlist = mongoose.model('Playlist', playlistSchema);

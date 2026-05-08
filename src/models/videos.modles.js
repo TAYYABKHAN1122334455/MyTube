@@ -14,38 +14,38 @@
   updatedAt: Date
 */
 
-import mongoose, { Schema } from "mongoose";
+import mongoose, { Schema } from 'mongoose';
 
 const videoSchema = new Schema(
   {
     videoFile: {
       type: String,
-      required: [true, "Video file is required"],
+      required: [true, 'Video file is required'],
       trim: true,
     },
 
     thumbnail: {
       type: String,
-      required: [true, "Thumbnail is required"],
+      required: [true, 'Thumbnail is required'],
       trim: true,
     },
 
     title: {
       type: String,
-      required: [true, "Title is required"],
+      required: [true, 'Title is required'],
       trim: true,
       maxlength: 100,
     },
 
     description: {
       type: String,
-      required: [true, "Description is required"],
+      required: [true, 'Description is required'],
       trim: true,
     },
 
     duration: {
       type: Number,
-      required: [true, "Duration is required"],
+      required: [true, 'Duration is required'],
       default: 0,
     },
 
@@ -61,8 +61,8 @@ const videoSchema = new Schema(
 
     owner: {
       type: Schema.Types.ObjectId,
-      ref: "User",
-      required: [true, "Owner is required"],
+      ref: 'User',
+      required: [true, 'Owner is required'],
     },
   },
   {
@@ -70,4 +70,4 @@ const videoSchema = new Schema(
   }
 );
 
-export const Video = mongoose.model("Video", videoSchema);
+export const Video = mongoose.model('Video', videoSchema);
