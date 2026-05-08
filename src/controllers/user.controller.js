@@ -35,7 +35,7 @@ const registerUser = asyncHandler(async (req, res) => {
     }
   }
   try {
-    const user = User.create({
+    const user = await User.create({
       fullname,
       email,
       password,
