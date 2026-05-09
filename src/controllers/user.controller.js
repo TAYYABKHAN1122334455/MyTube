@@ -5,8 +5,8 @@ import { uploadOnCloudinary, deleteFromCloudinary } from '../utils/cloudinary.js
 import apiResponse from '../utils/apiResponse.js';
 
 const registerUser = asyncHandler(async (req, res) => {
-  const { username, fullname, email, password } = req.body;
-  if ([fullname, username, email, password].some((field) => field?.trim() === '')) {
+  const { username, fullName, email, password } = req.body;
+  if ([fullName, username, email, password].some((field) => field?.trim() === '')) {
     throw new apiError(400, 'All Fields are required');
   }
   const existedUser = await User.findOne({
@@ -36,12 +36,12 @@ const registerUser = asyncHandler(async (req, res) => {
   }
   try {
     const user = await User.create({
-      fullname,
+      fullName,
       email,
       password,
       username: username.toLowerCase(),
       avatar: avatar.url,
-      coverImage: coverImage.url || '',
+      coverImage: coverImage?.url || '',
     });
 
     const createdUser = await User.findById(user._id).select('-password -refreshToken');
@@ -58,7 +58,7 @@ const registerUser = asyncHandler(async (req, res) => {
       await deleteFromCloudinary(coverImage.public_id);
     }
 
-    throw new ApiError(500, 'Registration failed, images deleted');
+    throw new apiError(500, 'Registration failed, images deleted');
   }
 });
 
